@@ -20,7 +20,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <!-- estilo próprio -->
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet">
 
     <title id="docTitle">Document</title>
 </head>
@@ -37,11 +37,21 @@
 
                         <tr>
                             <!-- Nome do personagem -->
-                            <th scope="col" id="HeroName"> Renan Félix </th>
-                            <!-- Dinheiro do personagem -->
-                            <th scope="col" id="HeroMoney"> $176 </th>
-                            <!-- Pontos de vida do personagem -->
-                            <th scope="col" id="HeroHitPoints"> PV: 8/8 </th>
+                            <th scope="col" id="HeroName"> Renan Felix </th>
+                            <!-- Dinheiro e Pontos de vida do personagem -->
+                            <th scope="col">
+                                <!-- Linha com duas colunas -->
+                                <div class="row">
+                                    <!-- Dinheiro do personagem -->
+                                    <div class="col-6" id="HeroMoney">
+                                        $176
+                                    </div> <!-- fim do dinheiro -->
+                                    <!-- Pontos de vida do personagem -->
+                                    <div class="col-6" id="HeroHitPoints">
+                                        PV: 8/8
+                                    </div> <!-- fim dos pontos de vida -->
+                                </div> <!-- fim das duas colunas -->
+                            </th> <!-- fim da parte com dinheiro e hp dos personagens -->
 
                         </tr>
 
@@ -58,37 +68,80 @@
                                     <div class="col-2">
                                         <h2> ATRIBUTOS </h2>
                                         <!-- há 2 colunas: o nome do atributo e seu valor -->
-                                        <div class="row">
-                                            <!-- Primeira coluna é maio (10/12) -->
+                                        <div class="row h-10 py-5">
+                                            <!-- Primeira coluna é maior com o nome do atributo (10/12) -->
                                             <div class="col-10">
                                                 <!-- Nome do atributo -->
-                                                <h4 class="atributo forca">Força</h4>
-                                                <h4 clas>Força</h4>
-                                                <h4>Força</h4>
-                                                <h4>Força</h4>
-                                            </div>
-                                            <!-- Segunda coluna é menor (2/12) -->
+                                                <h4 class="atributo"> Força </h4>
+                                                <h4 class="atributo"> Agilidade </h4>
+                                                <h4 class="atributo"> Intelecto </h4>
+                                                <h4 class="atributo"> Coragem </h4>
+                                            </div> <!-- fim dos nomes -->
+                                            <!-- Segunda coluna é menor com o valor do atributo (2/12) -->
                                             <div class="col-2">
                                                 <!-- Valor do atributo -->
-                                                <h4>0</h4>
-                                                <h4>0</h4>
-                                                <h4>0</h4>
-                                                <h4>0</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
+                                                <h4 class="valorAtributo" id="valorForca"> 0 </h4>
+                                                <h4 class="valorAtributo" id="valorAgilidade"> 0 </h4>
+                                                <h4 class="valorAtributo" id="valorIntelecto"> 0 </h4>
+                                                <h4 class="valorAtributo" id="valorCoragem"> 0 </h4>
+                                            </div> <!-- fim dos valores-->
+                                        </div> <!-- fim das 2 colunas-->
+                                    </div> <!-- fim dos ATRIBUTOS -->
+                                    <!-- Segunda coluna possui a imagem (6/12) -->
                                     <div class="col-6">
                                         <!-- Imagem -->
-                                    </div>
+                                    </div> <!-- Fim da imagem -->
+                                    <!-- Terceira coluna possui os ANTECEDENTES (4/12) -->
                                     <div class="col-4">
                                         <h2>ANTECEDENTES</h2>
-                                    </div>
+                                        <!-- Há 2 colunas: o nome do antecedente e seu valor -->
+                                        <div class="row">
+                                            <!-- Primeira coluna é maior com o nome do atributo (10/12) -->
+                                            <div class="col-10">
+                                                <!-- Nome do antecedente -->
+                                                <h5 class="antecedente"> Combate </h5>
+                                                <h5 class="antecedente"> Montaria </h5>
+                                                <h5 class="antecedente"> Negócios </h5>
+                                                <h5 class="antecedente"> Roubo </h5>
+                                                <h5 class="antecedente"> Labuta </h5>
+                                                <h5 class="antecedente"> Medicina </h5>
+                                                <h5 class="antecedente"> Exploração </h5>
+                                                <h5 class="antecedente"> Tradição </h5>
+                                            </div> <!-- fim dos nomes -->
+                                            <!-- Segunda coluna é menor com o valor do antecedente (2/12) -->
+                                            <div class="col-2">
+                                                <!-- Valor do antecedente -->
+                                                <h5 class="valorAntecedente" id="valorCombate"> 1 </h5>
+                                                <h5 class="valorAntecedente" id="valorMontaria"> 1 </h5>
+                                                <h5 class="valorAntecedente" id="valorNegocios"> 1 </h5>
+                                                <h5 class="valorAntecedente" id="valorRoubo"> 1 </h5>
+                                                <h5 class="valorAntecedente" id="valorLabuta"> 0 </h5>
+                                                <h5 class="valorAntecedente" id="valorMedicina"> 0 </h5>
+                                                <h5 class="valorAntecedente" id="valorExploracao"> 1 </h5>
+                                                <h5 class="valorAntecedente" id="valorTradicao"> 1 </h5>
+                                            </div> <!-- fim dos valores-->
+                                        </div> <!-- fim das 2 colunas -->
+                                    </div> <!-- fim dos ANTECEDENTES -->
 
+                                </div> <!-- fim das 3 colunas -->
+                            </th>
+
+                            <!-- Abaixo da linha que possui dinheiro e hp há duas linhas com tormento e habilidades -->
+                            <th scope="row">
+                                <div class="row">
+                                    <div class="col-12"> TORMENTO </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12"> Corpo todo queimado </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12"> HABILIDADES </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-10"> </div>
                                 </div>
                             </th>
-                            <th scope="row"></th>
-                            <th scope="row"></th>
 
                         </tr>
 
