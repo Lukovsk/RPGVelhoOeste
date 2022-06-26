@@ -3,34 +3,56 @@
     src: url('fonte/Carnevalee\ Freakshow.ttf') format('truetype');
 }
 
+div {
+    text-align: center;
+    /* margin: 1px; */
+}
+
 #HeroName {
     background-color: #20124d;
     color: red;
-    height: 50px;
     text-align: center;
-    font-size: 48px;
     letter-spacing: 10px;
-    font-family: FarWestFont;
     text-decoration: underline;
     font-style: italic;
 }
 
 #HeroMoney {
     background-color: #274e13;
-    color: white;
-    height: 50px;
     text-align: center;
-    font-size: 48px;
-    letter-spacing: 3px;
-    font-family: FarWestFont;
 }
 
 #HeroHitPoints {
     background-color: red;
-    color: white;
-    height: 50px;
     text-align: center;
-    font-size: 48px;
+}
+
+.identificação {
+    height: 70px;
+    color: white;
     letter-spacing: 3px;
     font-family: FarWestFont;
+    font-size: 48px;
+}
+
+.titulo {
+    font-family: FarWestFont;
+    text-align: center;
+    display: grid;
+}
+
+.ATRIBUTOS {
+    background-color: #783f04;
+}
+
+.ANTECEDENTES {
+    background-color: #4c1130;
+}
+
+.TORMENTO {
+    background-color: #660000;
+}
+
+.HABILIDADES {
+    background-color: #0c343d;
 }
