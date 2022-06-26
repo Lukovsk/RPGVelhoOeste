@@ -6,12 +6,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
-    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- estilo próprio -->
+    <link rel="stylesheet" href="style.css">
+
+    <title id="docTitle">Document</title>
 </head>
 
 <body>
 
-    
+    <section class="h-100 gradient-form" style="background-color: #FFFFFF;">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+
+                <table class="table-dark col-12">
+                    <!-- 3 linhas -->
+                    <thead>
+
+                        <tr>
+                            <!-- Nome do personagem -->
+                            <th scope="col" id="HeroName"> Renan Félix </th>
+                            <!-- Dinheiro do personagem -->
+                            <th scope="col" id="HeroMoney"> $176 </th>
+                            <!-- Pontos de vida do personagem -->
+                            <th scope="col" id="HeroHitPoints"> PV: 8/8 </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <!-- Abaixo do nome, temos os atributos, a imagem e os antecedentes do personagem -->
+                            <th scope="row">
+                                <!-- aqui estarão as 3 colunas -->
+                                <div class="row">
+                                    <!-- primeira coluna de atributos -->
+                                    <div class="col-2">
+                                        <h2> ATRIBUTOS </h2>
+                                        <!-- há 2 colunas: o nome do atributo e seu valor -->
+                                        <div class="row">
+                                            <!-- Primeira coluna é maio (10/12) -->
+                                            <div class="col-10">
+                                                <!-- Nome do atributo -->
+                                                <h4 class="atributo forca">Força</h4>
+                                                <h4 clas>Força</h4>
+                                                <h4>Força</h4>
+                                                <h4>Força</h4>
+                                            </div>
+                                            <!-- Segunda coluna é menor (2/12) -->
+                                            <div class="col-2">
+                                                <!-- Valor do atributo -->
+                                                <h4>0</h4>
+                                                <h4>0</h4>
+                                                <h4>0</h4>
+                                                <h4>0</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-6">
+                                        <!-- Imagem -->
+                                    </div>
+                                    <div class="col-4">
+                                        <h2>ANTECEDENTES</h2>
+                                    </div>
+
+                                </div>
+                            </th>
+                            <th scope="row"></th>
+                            <th scope="row"></th>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
 
 </body>
 
