@@ -40,7 +40,7 @@
                     <!-- Pontos de vida do personagem -->
                     <div class="col-2" id="HeroHitPoints"> PV: 8/8 </div> <!-- fim dos pontos de vida -->
 
-                </div> <!-- fim das duas colunas -->
+                </div> <!-- fim da cabeça da tabela -->
 
 
                 <!-- Segunda linha tem os atributos, a imagem, os antecedentes e o tormento do personagem -->
@@ -53,7 +53,7 @@
                         <!-- há 2 colunas: o nome do atributo e seu valor -->
                         <div class="row">
                             <!-- Primeira coluna é maior com o nome do atributo (10/12) -->
-                            <div class="col-10">
+                            <div class="col-6">
                                 <!-- Nome do atributo -->
                                 <h5 class="atributo"> Força </h5>
                                 <h5 class="atributo"> Agilidade </h5>
@@ -61,7 +61,7 @@
                                 <h5 class="atributo"> Coragem </h5>
                             </div> <!-- fim dos nomes -->
                             <!-- Segunda coluna é menor com o valor do atributo (2/12) -->
-                            <div class="col-2">
+                            <div class="col-6">
                                 <!-- Valor do atributo -->
                                 <h5 class="valorAtributo" id="valorForca"> 0 </h5>
                                 <h5 class="valorAtributo" id="valorAgilidade"> 0 </h5>
@@ -71,8 +71,9 @@
                         </div> <!-- fim das 2 colunas-->
                     </div> <!-- fim dos ATRIBUTOS -->
                     <!-- Segunda coluna possui a imagem (6/12) -->
-                    <div class="col-3">
+                    <div class="col-3 imagem">
                         <!-- Imagem -->
+                        <img src="imagens/TF conceito.jpg">
                     </div> <!-- Fim da imagem -->
                     <!-- Terceira coluna possui os ANTECEDENTES (4/12) -->
                     <div class="col-3 ANTECEDENTES">
@@ -109,25 +110,51 @@
 
 
                     <!-- Abaixo da linha que possui dinheiro e hp há duas linhas com tormento e habilidades -->
-                    <div class="col-4">
-                        <div class="row titulo">
-                            <h2> TORMENTO </h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-12"> Corpo todo queimado </div>
-                        </div>
+                    <div class="col-4" style="background-color: #0c343d">
+                        <!-- última coluna com o TORMENTO e as HABILIDADES -->
+                        <!-- Primeira linha é o tormento -->
+                        <div class="row TORMENTO">
+                            <!-- Título -->
+                            <div class="col-12 titulo">
+                                <h2> TORMENTO </h2>
+                            </div>
+                            <!-- Descrição do tormento -->
+                            <div class="col-12">
+                                <div class="col-12"> Corpo todo queimado FWWEST FWWEST FWWEST FWWEST </div>
+                            </div>
+                        </div> <!-- fim do tormento -->
+                        <!-- Segunda linha possui as habilidades -->
+                        <div class="row HABILIDADES">
+                            <!-- Título -->
+                            <div class="col-12 titulo">
+                                <h2> HABILIDADES </h2>
+                            </div>
+                            <!-- Habilidades -->
+                            <div class="col-12">
+                                <div class="row d-flex">
+                                    <!-- display das habilidades -->
 
-                        <div class="row titulo">
-                            <h2> HABILIDADES </h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-10"> </div>
-                        </div>
-                    </div>
-                </div>
+                                    <div class="col-6 titulo habilidade"> ACE OF SPADES <br />
+                                        <p class="descrição"> +1 trapaças </p>
+                                    </div>
 
+                                    <div class="col-6 titulo habilidade"> LIGHT MY FIRE <br />
+                                        <p class="descrição"> +1 teste com revolver
+                                            <br /> +2 de dano com revolver
+                                        </p>
+                                    </div>
+
+                                    <!-- <div class="col-6 titulo habilidade"> (NOME DA HABILIDADE) <br />
+                                        <p class="descrição"> (DESCRIÇÃO DAS HABILIDADES) </p>
+                                    </div> -->
+
+                                </div> <!-- fim do display -->
+                            </div> <!-- fim das habilidades elicitadas --> 
+                        </div> <!-- fim dessa seção -->
+                    </div> <!-- fim a parte com Tormento e Habilidades -->
+
+                </div> <!-- fim do corpo da tabela -->
             </div>
-        </div>
     </section>
 
 </body>

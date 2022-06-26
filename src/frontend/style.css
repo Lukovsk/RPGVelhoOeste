@@ -5,7 +5,16 @@
 
 div {
     text-align: center;
-    /* margin: 1px; */
+}
+
+img {
+    width: 85%;
+    height: 85%;
+}
+
+.imagem {
+    background-color: #c2c2c2;
+
 }
 
 #HeroName {
@@ -41,12 +50,41 @@ div {
     display: grid;
 }
 
+.descrição {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
+}
+
 .ATRIBUTOS {
     background-color: #783f04;
 }
 
+.atributo {
+    padding: 30px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.valorAtributo {
+    padding: 30px;
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .ANTECEDENTES {
     background-color: #4c1130;
+}
+
+.antecedente {
+    padding: 8px;
+    text-align: left;
+}
+
+.valorAntecedente {
+    padding: 8px;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .TORMENTO {
@@ -55,4 +93,9 @@ div {
 
 .HABILIDADES {
     background-color: #0c343d;
+    display: block;
+}
+
+.habilidade {
+    font-size: 25px;
 }
