@@ -12,6 +12,10 @@ img {
     height: 85%;
 }
 
+table {
+    background-color: #7f6000;
+}
+
 .imagem {
     background-color: #c2c2c2;
 
@@ -98,4 +102,22 @@ img {
 
 .habilidade {
     font-size: 25px;
+}
+
+.equipamento {
+    width: 195px;
+    font-family: FarWestFont;
+    font-size: 30px;
+}
+
+.descriçãoEquip {
+    width: 292.5px;
+    font-family: FarWestFont;
+    font-size: 30px;
+}
+
+.observaçãoEquip {
+    width: 682px;
+    font-family: FarWestFont;
+    font-size: 30px;
 }
