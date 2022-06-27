@@ -16,6 +16,14 @@ table {
     background-color: #7f6000;
 }
 
+th {
+    font-size: 20px;
+    text-align: left;
+    border: 1px;
+    border-width: 1px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .imagem {
     background-color: #c2c2c2;
 
@@ -64,13 +72,15 @@ table {
 }
 
 .atributo {
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     text-align: left;
     font-size: 20px;
 }
 
 .valorAtributo {
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-size: 20px;
     font-weight: lighter;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -81,12 +91,14 @@ table {
 }
 
 .antecedente {
-    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-align: left;
 }
 
 .valorAntecedente {
-    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-weight: lighter;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
