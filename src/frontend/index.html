@@ -22,7 +22,12 @@
     <!-- estilo próprio -->
     <link href="style.css" rel="stylesheet">
 
-    <title id="docTitle">Document</title>
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <title id="docTitle"></title>
 </head>
 
 <body style="background-color:black; color:white">
@@ -34,11 +39,11 @@
                 <!-- Primeira linha tem o nome, dinheiro e hp -->
                 <div class="row identificação">
                     <!-- Nome do personagem -->
-                    <div class="col-8" id="HeroName"> Renan Felix </div>
+                    <div class="col-8" id="HeroName"> </div>
                     <!-- Dinheiro do personagem -->
-                    <div class="col-2" id="HeroMoney"> $176 </div> <!-- fim do dinheiro -->
+                    <div class="col-2" id="HeroMoney"> </div> <!-- fim do dinheiro -->
                     <!-- Pontos de vida do personagem -->
-                    <div class="col-2" id="HeroHitPoints"> PV: 8/8 </div> <!-- fim dos pontos de vida -->
+                    <div class="col-2" id="HeroHitPoints"> </div> <!-- fim dos pontos de vida -->
 
                 </div> <!-- fim da cabeça da tabela -->
 
@@ -120,7 +125,7 @@
                             </div>
                             <!-- Descrição do tormento -->
                             <div class="col-12">
-                                <div class="col-12"> Corpo todo queimado FWWEST FWWEST FWWEST FWWEST </div>
+                                <div class="col-12" id="HeroTorment"></div>
                             </div>
                         </div> <!-- fim do tormento -->
                         <!-- Segunda linha possui as habilidades -->
@@ -131,18 +136,8 @@
                             </div>
                             <!-- Habilidades -->
                             <div class="col-12">
-                                <div class="row d-flex">
+                                <div class="row d-flex" id="HeroSkill">
                                     <!-- display das habilidades -->
-
-                                    <div class="col-6 titulo habilidade"> ACE OF SPADES <br />
-                                        <p class="descrição"> +1 trapaças </p>
-                                    </div>
-
-                                    <div class="col-6 titulo habilidade"> LIGHT MY FIRE <br />
-                                        <p class="descrição"> +1 teste com revolver
-                                            <br /> +2 de dano com revolver
-                                        </p>
-                                    </div>
 
                                     <!-- <div class="col-6 titulo habilidade"> (NOME DA HABILIDADE) <br />
                                         <p class="descrição"> (DESCRIÇÃO DAS HABILIDADES) </p>
