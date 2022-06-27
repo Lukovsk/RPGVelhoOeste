@@ -39,6 +39,60 @@ var personagem = {
                 $('#HeroSkill').append(skill);
             }
         });
+
+        $.ajax({
+            url: 'http://127.0.0.1:1234/readAtributo',
+            type: 'GET',
+            success: data => {
+                var forca = '';
+                var agilidade = '';
+                var intelecto = '';
+                var coragem = '';
+                data.forEach(element => {
+                    forca = `${element.Forca}`;
+                    agilidade = `${element.Agilidade}`;
+                    intelecto = `${element.Intelecto}`;
+                    coragem = `${element.Coragem}`;
+                });
+                $('#valorForca').append(forca);
+                $('#valorAgilidade').append(agilidade);
+                $('#valorIntelecto').append(intelecto);
+                $('#valorCoragem').append(coragem);
+            }
+        });
+
+        $.ajax({
+            url: 'http://127.0.0.1:1234/readAntecedente',
+            type: 'GET',
+            success: data => {
+                var Combate = '';
+                var Montaria = '';
+                var Negocios = '';
+                var Roubo = '';
+                var Labuta = '';
+                var Medicina = '';
+                var Exploracao = '';
+                var Tradicao = '';
+                data.forEach(element => {
+                    Combate = `${element.Combate}`
+                    Montaria = `${element.Montaria}`
+                    Negocios = `${element.Negocios}`
+                    Roubo = `${element.Roubo}`
+                    Labuta = `${element.Labuta}`
+                    Medicina = `${element.Medicina}`
+                    Tradicao = `${element.Tradicao}`
+                    Exploracao = `${element.Exploracao}`
+                });
+                $('#valorCombate').append(Combate);
+                $('#valorMontaria').append(Montaria);
+                $('#valorNegocios').append(Negocios);
+                $('#valorRoubo').append(Roubo);
+                $('#valorLabuta').append(Labuta);
+                $('#valorMedicina').append(Medicina);
+                $('#valorExploracao').append(Exploracao);
+                $('#valorTradicao').append(Tradicao);
+            }
+        });
     }
 
 };

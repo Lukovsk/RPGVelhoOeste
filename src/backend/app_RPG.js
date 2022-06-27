@@ -221,3 +221,72 @@ app.post("/deleteAtributo", (req, res) => { //Método Delete, deleta um usuário
     });
     db.close(); // Fecha o banco
 });
+
+/*
+========================================================================================
+//                 Endpoints relacionados à tabela Antecedente                        //
+//                                                                                    //
+========================================================================================
+*/
+
+// READ - Torna possível retornar os dados 
+app.get("/readAntecedente", (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var sql = 'SELECT * FROM Antecedente ORDER BY idAntecedente COLLATE NOCASE';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close();
+});
+
+// CREATE - Registra um novo personagem
+app.post("/insertAntecedente", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+
+    sql = `INSERT INTO Antecedente (Combate, Montaria, Negocios, Roubo, Labuta, Medicina, Exploracao, Tradicao) VALUES ('${req.body.Combate}','${req.body.Montaria}','${req.body.Negocios}', '${req.body.Roubo}', '${req.body.Labuta}', '${req.body.Medicina}', '${req.body.Exploracao}', '${req.body.Tradicao}')`;
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// UPDATE - Atualiza um novo personagem
+app.post("/updateAntecedente", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+
+    sql = `UPDATE Antecedente SET Combate = '${req.body.Combate}', Montaria = '${req.body.Montaria}', Negocios = '${req.body.Negocios}', Roubo = '${req.body.Roubo}', Labuta = '${req.body.Labuta}', Medicina = '${req.body.Medicina}', Exploracao = '${req.body.Exploracao}', Tradicao = '${req.body.Tradicao}' WHERE idAntecedente = '${req.body.idAntecedente}'`;
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// DELETE - Deleta um personagem
+app.post("/deleteAntecedente", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = "DELETE FROM Antecedente WHERE idAntecedente = '" + req.body.idAntecedente + "'";
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    db.close(); // Fecha o banco
+});
