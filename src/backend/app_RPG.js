@@ -290,3 +290,72 @@ app.post("/deleteAntecedente", (req, res) => { //Método Delete, deleta um usuá
     });
     db.close(); // Fecha o banco
 });
+
+/*
+========================================================================================
+//                 Endpoints relacionados à tabela Equipamento                        //
+//                                                                                    //
+========================================================================================
+*/
+
+// READ - Torna possível retornar os dados 
+app.get("/readEquipamento", (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var sql = 'SELECT * FROM Equipamento ORDER BY idEquipamento COLLATE NOCASE';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close();
+});
+
+// CREATE - Registra um novo personagem
+app.post("/insertEquipamento", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+
+    sql = `INSERT INTO Equipamento (NomeEquipamento, DescricaoEquipamento, ObservacaoEquipamento) VALUES ('${req.body.NomeEquipamento}', '${req.body.DescricaoEquipamento}', '${req.body.ObservacaoEquipamento}')`;
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// UPDATE - Atualiza um novo personagem
+app.post("/updateEquipamento", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+
+    sql = `UPDATE Equipamento SET NomeEquipamento = '${req.body.NomeEquipamento}', DescricaoEquipamento = '${req.body.DescricaoEquipamento}', ObservacaoEquipamento = '${req.body.ObservacaoEquipamento}' WHERE idEquipamento = '${req.body.idEquipamento}'`;
+
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// DELETE - Deleta um personagem
+app.post("/deleteEquipamento", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = "DELETE FROM Equipamento WHERE idEquipamento = '" + req.body.idEquipamento + "'";
+    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    db.close(); // Fecha o banco
+});

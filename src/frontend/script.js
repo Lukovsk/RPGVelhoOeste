@@ -93,6 +93,22 @@ var personagem = {
                 $('#valorTradicao').append(Tradicao);
             }
         });
+
+        $.ajax({
+            url: 'http://127.0.0.1:1234/readEquipamento',
+            type: 'GET',
+            success: data => {
+                var tr = '';
+                data.forEach(element => {
+                    tr += `<tr>`;
+                    tr += `<th scope="row"> ${element.NomeEquipamento} </th>`;
+                    tr += `<th scope="row"> ${element.DescricaoEquipamento} </th>`;
+                    tr += `<th scope="row"> ${element.ObservacaoEquipamento} </th>`;
+                    tr += `</tr>`;
+                });
+                $('#main').html(tr);
+            }
+        });
     }
 
 };
