@@ -19,14 +19,7 @@ table {
 th {
     font-size: 20px;
     text-align: left;
-    border: 1px;
-    border-width: 1px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.imagem {
-    background-color: #c2c2c2;
-
 }
 
 #HeroName {
@@ -38,6 +31,11 @@ th {
     font-style: italic;
 }
 
+#MoneyDiv {
+    background-color: #274e13;
+    text-align: center;
+}
+
 #HeroMoney {
     background-color: #274e13;
     text-align: center;
@@ -46,6 +44,11 @@ th {
 #HeroHitPoints {
     background-color: red;
     text-align: center;
+}
+
+.imagem {
+    background-color: #c2c2c2;
+
 }
 
 .identificação {

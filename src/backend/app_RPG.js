@@ -14,16 +14,15 @@ app.use(express.urlencoded({
 }))
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/index.html`); // printa no console
+    console.log(`Server running at http://${hostname}:${port}/index.html`); 
 });
 
 let db = new sqlite3.Database(DBSOURCE, (err) => {
-    if (err) { // aparece o erro no console se ele existir
-        // Cannot open database
+    if (err) { 
         console.error(err.message)
         throw err
     } else {
-        console.log('Connected to the SQLite database.') // aparece isso no console se der bom
+        console.log('Connected to the SQLite database.') 
     }
 });
 
@@ -41,9 +40,9 @@ module.exports = db // exporta o bd
 // READ - Torna possível retornar os dados 
 app.get("/readPersonagem", (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');  
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     var sql = 'SELECT * FROM Personagem ORDER BY NomePersonagem COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -55,34 +54,34 @@ app.get("/readPersonagem", (req, res) => {
 });
 
 // CREATE - Registra um novo personagem
-app.post("/insertPersonagem", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/insertPersonagem", (req, res) => {  
 
     sql = `INSERT INTO Personagem (NomePersonagem, Dinheiro, HP, MaxHP, Tormento) VALUES ('${req.body.NomePersonagem}','${req.body.Dinheiro}','${req.body.HP}', '${req.body.MaxHP}', '${req.body.Tormento}')`
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 // DELETE - Deleta um personagem
-app.post("/deletePersonagem", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+app.post("/deletePersonagem", (req, res) => {  
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     sql = "DELETE FROM Personagem WHERE idPersonagem = '" + req.body.idPersonagem + "'";
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 /*
@@ -95,9 +94,9 @@ app.post("/deletePersonagem", (req, res) => { //Método Delete, deleta um usuár
 // READ - Torna possível retornar os dados 
 app.get("/readSkill", (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');  
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     var sql = 'SELECT * FROM Habilidade ORDER BY idHabilidade COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -109,49 +108,49 @@ app.get("/readSkill", (req, res) => {
 });
 
 // CREATE - Registra um novo personagem
-app.post("/insertSkill", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/insertSkill", (req, res) => {  
 
     sql = `INSERT INTO Habilidade (NomeHabilidade, Efeito_1, Efeito_2, Efeito_3) VALUES ('${req.body.NomeHabilidade}','${req.body.Efeito_1}','${req.body.Efeito_2}', '${req.body.Efeito_3}')`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
-// UPDATE - Atualiza um novo personagem
-app.post("/updateSkill", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+// UPDATE - Atualiza as skills um novo personagem
+app.post("/updateSkill", (req, res) => { 
 
     sql = `UPDATE Habilidade SET NomeHabilidade = '${req.body.NomeHabilidade}', Efeito_1 = '${req.body.Efeito_1}', Efeito_2 = '${req.body.Efeito_2}', Efeito_3 = '${req.body.Efeito_3}' WHERE idHabilidade = '${req.body.idHabilidade}'`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE); 
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close(); 
 });
 
 // DELETE - Deleta um personagem
-app.post("/deleteSkill", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+app.post("/deleteSkill", (req, res) => { 
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     sql = "DELETE FROM Habilidade WHERE idHabilidade = '" + req.body.idHabilidade + "'";
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close(); 
 });
 /*
 ========================================================================================
@@ -163,9 +162,9 @@ app.post("/deleteSkill", (req, res) => { //Método Delete, deleta um usuário do
 // READ - Torna possível retornar os dados 
 app.get("/readAtributo", (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);
     var sql = 'SELECT * FROM Atributo ORDER BY idAtributo COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -177,49 +176,49 @@ app.get("/readAtributo", (req, res) => {
 });
 
 // CREATE - Registra um novo personagem
-app.post("/insertAtributo", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/insertAtributo", (req, res) => { 
 
     sql = `INSERT INTO Atributo (Forca, Agilidade, Intelecto, Coragem) VALUES ('${req.body.Forca}','${req.body.Agilidade}','${req.body.Intelecto}', '${req.body.Coragem}')`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE); 
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close(); 
 });
 
 // UPDATE - Atualiza um novo personagem
-app.post("/updateAtributo", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/updateAtributo", (req, res) => { 
 
     sql = `UPDATE Atributo SET Forca = '${req.body.Forca}', Agilidade = '${req.body.Agilidade}', Intelecto = '${req.body.Intelecto}', Coragem = '${req.body.Coragem}' WHERE idAtributo = '${req.body.idAtributo}'`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE); 
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close(); 
 });
 
 // DELETE - Deleta um personagem
-app.post("/deleteAtributo", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+app.post("/deleteAtributo", (req, res) => { 
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     sql = "DELETE FROM Atributo WHERE idAtributo = '" + req.body.idAtributo + "'";
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close(); 
 });
 
 /*
@@ -232,9 +231,9 @@ app.post("/deleteAtributo", (req, res) => { //Método Delete, deleta um usuário
 // READ - Torna possível retornar os dados 
 app.get("/readAntecedente", (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');  
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     var sql = 'SELECT * FROM Antecedente ORDER BY idAntecedente COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -246,49 +245,49 @@ app.get("/readAntecedente", (req, res) => {
 });
 
 // CREATE - Registra um novo personagem
-app.post("/insertAntecedente", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/insertAntecedente", (req, res) => {  
 
     sql = `INSERT INTO Antecedente (Combate, Montaria, Negocios, Roubo, Labuta, Medicina, Exploracao, Tradicao) VALUES ('${req.body.Combate}','${req.body.Montaria}','${req.body.Negocios}', '${req.body.Roubo}', '${req.body.Labuta}', '${req.body.Medicina}', '${req.body.Exploracao}', '${req.body.Tradicao}')`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 // UPDATE - Atualiza um novo personagem
-app.post("/updateAntecedente", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/updateAntecedente", (req, res) => {  
 
     sql = `UPDATE Antecedente SET Combate = '${req.body.Combate}', Montaria = '${req.body.Montaria}', Negocios = '${req.body.Negocios}', Roubo = '${req.body.Roubo}', Labuta = '${req.body.Labuta}', Medicina = '${req.body.Medicina}', Exploracao = '${req.body.Exploracao}', Tradicao = '${req.body.Tradicao}' WHERE idAntecedente = '${req.body.idAntecedente}'`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 // DELETE - Deleta um personagem
-app.post("/deleteAntecedente", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+app.post("/deleteAntecedente", (req, res) => {  
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     sql = "DELETE FROM Antecedente WHERE idAntecedente = '" + req.body.idAntecedente + "'";
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 /*
@@ -301,9 +300,9 @@ app.post("/deleteAntecedente", (req, res) => { //Método Delete, deleta um usuá
 // READ - Torna possível retornar os dados 
 app.get("/readEquipamento", (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');  
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     var sql = 'SELECT * FROM Equipamento ORDER BY idEquipamento COLLATE NOCASE';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -315,47 +314,47 @@ app.get("/readEquipamento", (req, res) => {
 });
 
 // CREATE - Registra um novo personagem
-app.post("/insertEquipamento", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/insertEquipamento", (req, res) => {  
 
     sql = `INSERT INTO Equipamento (NomeEquipamento, DescricaoEquipamento, ObservacaoEquipamento) VALUES ('${req.body.NomeEquipamento}', '${req.body.DescricaoEquipamento}', '${req.body.ObservacaoEquipamento}')`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 // UPDATE - Atualiza um novo personagem
-app.post("/updateEquipamento", (req, res) => { //Método Post, pega os campos da ficha de insumos e também envia para o banco de dado
+app.post("/updateEquipamento", (req, res) => {  
 
     sql = `UPDATE Equipamento SET NomeEquipamento = '${req.body.NomeEquipamento}', DescricaoEquipamento = '${req.body.DescricaoEquipamento}', ObservacaoEquipamento = '${req.body.ObservacaoEquipamento}' WHERE idEquipamento = '${req.body.idEquipamento}'`;
 
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
 
 // DELETE - Deleta um personagem
-app.post("/deleteEquipamento", (req, res) => { //Método Delete, deleta um usuário do banco de dados, por exemplo
+app.post("/deleteEquipamento", (req, res) => {  
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     sql = "DELETE FROM Equipamento WHERE idEquipamento = '" + req.body.idEquipamento + "'";
-    var db = new sqlite3.Database(DBSOURCE); // Abre o banco
+    var db = new sqlite3.Database(DBSOURCE);  
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();  
 });
